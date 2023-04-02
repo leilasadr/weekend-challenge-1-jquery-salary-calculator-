@@ -3,10 +3,11 @@ $(document).ready (onReady);
 function onReady () {
     console.log('Welcome to our calculator!');
     $('.submit-button').on('click', handleInput)
+    $('#employee-data').on('click', '.delete-btn', deleteEmployeeData)
 }
 
 function handleInput (event) {
-    console.log('We rollin?');
+    console.log('Beautiful inputs!');
     event.preventDefault();
 
     const firstNameInput = $('#firstName-input');
@@ -19,7 +20,7 @@ function handleInput (event) {
     const lastName = lastNameInput.val();
     const id = IdInput.val();
     const title = titleInput.val();
-    const annualSalary = annualSalaryInput.val();
+    const annualSalary = Number(annualSalaryInput.val());
 
     firstNameInput.val('');
     lastNameInput.val('');
@@ -38,5 +39,35 @@ function handleInput (event) {
             <button class="delete-btn">❌</button>
         </td>
       </tr>`)
+    
+    calculateTotalMonthly();
+}
+
+function deleteEmployeeData(event) {
+    console.log('Delete away!');
+    $(event.target).parent().parent().remove()
+}
+
+function calculateTotalMonthly() {
+    console.log('Calculate away!');
+    let totalMonthlyCost = 0;
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    // $('#employee-data').each(function() {
+    // const annualSalaryInput = $('#anSal-input');
+    // const annualSalary = Number(annualSalaryInput.val())/12;
+    // let totalMonthlyCost = 0;
+    // totalMonthlyCost += annualSalary;
+    // })
+
+    // $('footer').text(`Total Monthly: ${totalMonthlyCost}`);
 
 }
