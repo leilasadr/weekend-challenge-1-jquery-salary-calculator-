@@ -39,7 +39,7 @@ function handleInput (event) {
             <button class="delete-btn">❌</button>
         </td>
       </tr>`)
-    
+
     calculateTotalMonthly();
 }
 
@@ -49,25 +49,19 @@ function deleteEmployeeData(event) {
 }
 
 function calculateTotalMonthly() {
-    console.log('Calculate away!');
-    let totalMonthlyCost = 0;
-    
    
-    
-    
-    
-    
-    
-    
-    
-    
-    // $('#employee-data').each(function() {
-    // const annualSalaryInput = $('#anSal-input');
-    // const annualSalary = Number(annualSalaryInput.val())/12;
-    // let totalMonthlyCost = 0;
-    // totalMonthlyCost += annualSalary;
-    // })
+    let totalMonthlyCost = 0;
+    $('#employee-data tr').each(function() {
+        const monthlyCostString = $(this).children('td').eq(4).text();
+        const monthlyCost = Number(monthlyCostString);
+        totalMonthlyCost += (monthlyCost)/12;
+        
+    });
+    const totalMonthlyCostRounded = Math.round(totalMonthlyCost);
+    $('footer').text(`Total Monthly: $${totalMonthlyCostRounded}`);
+    console.log('Calculate away!', totalMonthlyCost)
 
-    // $('footer').text(`Total Monthly: ${totalMonthlyCost}`);
-
+    if(totalMonthlyCostRounded >20000) {
+        $('footer').css('background-color', 'red');
+    }
 }
